@@ -1,0 +1,8 @@
+#* eol=crlf
+
+*.jar binary
+*.exe binary
+*.dll binary
+*.pdb binary
+*.olb binary
+*.7z binary
