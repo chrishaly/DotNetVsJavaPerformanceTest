@@ -8,7 +8,7 @@ namespace DotNetPerformanceTest
         public void Test()
         {
             var stopwatch = Stopwatch.StartNew();
-            ExceptionTest(100_000);
+            ExceptionTest(1000_000);
             stopwatch.Stop();
             Console.WriteLine(stopwatch.ElapsedMilliseconds);
         }

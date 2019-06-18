@@ -7,20 +7,23 @@ public class ExceptionPerformanceTest {
 
     public void Test() {
         Instant start = Instant.now();
-        ExceptionTest(100_000);
+        System.out.println(ExceptionTest(1000_000));
         Instant end = Instant.now();
         Duration duration = Duration.between(start, end);
         System.out.println(duration.toMillis());
 
     }
 
-    private void ExceptionTest(long times) {
+    private long ExceptionTest(long times) {
+        long result = 0;
         for (int i = 0; i < times; i++) {
             try {
                 throw new Exception();
             } catch (Exception ex) {
                 //Ignore
+                result++;
             }
         }
+        return result;
     }
 }
