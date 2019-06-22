@@ -13,19 +13,27 @@ namespace DotNetPerformanceTest
             Console.WriteLine(stopwatch.ElapsedMilliseconds);
         }
 
-        private void ExceptionTest(long times)
+        private long ExceptionTest(long times)
         {
+            long counter = 0;
             for (int i = 0; i < times; i++)
             {
                 try
                 {
-                    throw new Exception();
+                    Throw();
                 }
                 catch (Exception ex)
                 {
-                    //Ignore
+                    counter++;
                 }
             }
+            return counter;
+        }
+
+
+        private void Throw()
+        {
+            throw new Exception();
         }
     }
 }

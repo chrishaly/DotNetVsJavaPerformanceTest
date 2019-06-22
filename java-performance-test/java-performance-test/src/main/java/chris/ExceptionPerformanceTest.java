@@ -18,12 +18,16 @@ public class ExceptionPerformanceTest {
         long result = 0;
         for (int i = 0; i < times; i++) {
             try {
-                throw new Exception();
+                Throw();
             } catch (Exception ex) {
                 //Ignore
                 result++;
             }
         }
         return result;
+    }
+
+    private void Throw() throws Exception {
+        throw new Exception();
     }
 }
