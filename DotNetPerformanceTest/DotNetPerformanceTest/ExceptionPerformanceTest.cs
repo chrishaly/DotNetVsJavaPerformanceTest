@@ -24,6 +24,10 @@ namespace DotNetPerformanceTest
                 }
                 catch (Exception ex)
                 {
+                    if (ex.Message != "message")
+                    {
+                        throw new Exception("test failed");
+                    }
                     counter++;
                 }
             }
@@ -33,7 +37,7 @@ namespace DotNetPerformanceTest
 
         private void Throw()
         {
-            throw new Exception();
+            throw new Exception("message");
         }
     }
 }

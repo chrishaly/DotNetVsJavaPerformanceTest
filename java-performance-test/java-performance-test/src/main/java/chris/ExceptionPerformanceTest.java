@@ -5,7 +5,7 @@ import java.time.Instant;
 
 public class ExceptionPerformanceTest {
 
-    public void Test() {
+    public void Test() throws Exception {
         Instant start = Instant.now();
         System.out.println(ExceptionTest(1000_000));
         Instant end = Instant.now();
@@ -14,12 +14,15 @@ public class ExceptionPerformanceTest {
 
     }
 
-    private long ExceptionTest(long times) {
+    private long ExceptionTest(long times) throws Exception {
         long result = 0;
         for (int i = 0; i < times; i++) {
             try {
                 Throw();
             } catch (Exception ex) {
+                if(!ex.getMessage().equals("message")){
+                    throw new Exception("test failed");
+                }
                 //Ignore
                 result++;
             }
@@ -28,6 +31,6 @@ public class ExceptionPerformanceTest {
     }
 
     private void Throw() throws Exception {
-        throw new Exception();
+        throw new Exception("message");
     }
 }
